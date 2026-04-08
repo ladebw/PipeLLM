@@ -30,18 +30,17 @@ def main():
     # Clone llama.cpp if not exists
     if not llama_dir.exists():
         print("Cloning llama.cpp repository...")
-        if not run_command("git clone https://github.com/ggerganov/llama.cpp.git"):
+        if not run_command("git clone https://github.com/ggerganov/llama.cpp.git", cwd=benchmarks_dir):
             return False
     
     # Build llama.cpp
     print("Building llama.cpp...")
-    os.chdir(llama_dir)
     
     # Build with CUDA support
-    if not run_command("make clean"):
+    if not run_command("make clean", cwd=llama_dir):
         return False
     
-    if not run_command("make LLAMA_CUDA=1 -j4"):
+    if not run_command("make LLAMA_CUDA=1 -j4", cwd=llama_dir):
         return False
     
     # Verify build

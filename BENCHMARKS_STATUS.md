@@ -22,6 +22,8 @@ This document tracks the status of benchmark results in the PipeLLM project. All
 | `scripts/run_task_2_5.py` | Task 2.5 execution with simulated validation | ROADMAP task 2.5 with real measurements |
 | `src/pipeline_parallel/async_output_validation.py` | Async output validation (CPU simulation) | ROADMAP task 2.6 with real CUDA hardware |
 | `scripts/run_task_2_6.py` | Task 2.6 execution with simulated validation | ROADMAP task 2.6 with real measurements |
+| `benchmarks/cumulative_benchmark.py` | Cumulative benchmarking (CPU simulation) | ROADMAP task 2.7 with real CUDA hardware |
+| `scripts/run_task_2_7.py` | Task 2.7 execution with simulated benchmarking | ROADMAP task 2.7 with real measurements |
 
 ## Implementation Status by Roadmap Task
 
@@ -37,7 +39,7 @@ This document tracks the status of benchmark results in the PipeLLM project. All
 - [x] **Task 2.4** - Double-buffer swap logic implemented (completed as part of Task 2.2)
 - [x] **Task 2.5** - Race condition testing implemented (CPU simulation complete, CUDA hardware validation required)
 - [x] **Task 2.6** - Output validation implemented (CPU simulation complete, CUDA hardware validation required)
-- [ ] **Task 2.7** - Real cumulative improvement recorded (requires CUDA hardware)
+- [x] **Task 2.7** - Cumulative benchmarking implemented (CPU simulation complete, CUDA hardware validation required)
 
 ### Phase 3: Pipeline Parallelism
 - [ ] **Task 3.1-3.8** - Implementation pending hardware validation of Phase 2

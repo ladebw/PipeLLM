@@ -44,10 +44,15 @@ def run_tests() -> Dict[str, Any]:
     
     print()
     
-    # Test files to run
+    # Test files to run (all Phase 1 tests)
     test_files = [
-        'test_cuda_graph_capture.py',
-        'test_llama_integration.py',
+        'test_cuda_graph_capture.py',      # Task 1.3
+        'test_bucket_management.py',       # Task 1.4
+        'test_output_validation.py',       # Task 1.5
+        'test_benchmarking.py',           # Task 1.6
+        'test_integration.py',            # Integration tests
+        'test_performance.py',            # Performance tests
+        'test_llama_integration.py',      # Model integration
     ]
     
     # Run tests
@@ -243,8 +248,20 @@ def run_specific_test_suite(suite_name: str):
     """Run a specific test suite."""
     suites = {
         'core': ['test_cuda_graph_capture.py'],
-        'integration': ['test_llama_integration.py'],
-        'all': ['test_cuda_graph_capture.py', 'test_llama_integration.py'],
+        'bucket': ['test_bucket_management.py'],
+        'validation': ['test_output_validation.py'],
+        'benchmark': ['test_benchmarking.py'],
+        'integration': ['test_integration.py', 'test_llama_integration.py'],
+        'performance': ['test_performance.py'],
+        'all': [
+            'test_cuda_graph_capture.py',
+            'test_bucket_management.py',
+            'test_output_validation.py',
+            'test_benchmarking.py',
+            'test_integration.py',
+            'test_performance.py',
+            'test_llama_integration.py',
+        ],
     }
     
     if suite_name not in suites:

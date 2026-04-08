@@ -1,22 +1,14 @@
-# Benchmarking Harness
+# Benchmarking and Profiling Tools
 
-This directory contains the benchmarking harness for PipeLLM vs llama.cpp comparison.
+This directory contains tools for benchmarking, profiling, and analyzing LLM inference performance.
 
 ## Overview
 
-The benchmarking harness is designed to:
-1. Automatically set up llama.cpp as a baseline
-2. Run standardized benchmarks across different configurations
-3. Collect performance metrics (tokens/sec, execution time)
-4. Generate comparative analysis and visualizations
+The tools are organized into three main categories:
 
-## Structure
-
-- `setup_llamacpp.py` - Downloads and compiles llama.cpp
-- `benchmark_config.py` - Configuration for models and benchmarks
-- `run_benchmark.py` - Main benchmarking script
-- `analyze_results.py` - Analysis and visualization tools
-- `requirements.txt` - Python dependencies for analysis
+1. **Benchmarking Harness**: Compare PipeLLM vs llama.cpp performance
+2. **Overhead Analysis**: Measure per-token overhead breakdown (Phase 1, Task 1.2)
+3. **CUDA Profiling**: Low-level CUDA overhead measurements
 
 ## Quick Start
 
@@ -26,27 +18,56 @@ The benchmarking harness is designed to:
 python setup_llamacpp.py
 ```
 
-### 2. Install analysis dependencies
+### 2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
+# For CUDA profiling, also install PyTorch with CUDA:
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 
-### 3. Run benchmarks
+### 3. Run per-token overhead analysis (Task 1.2)
+
+```bash
+# Direct profiling (requires GGUF model)
+python profiling.py --model-path /path/to/model.gguf --runs 10
+
+# CUDA microbenchmarks
+python cuda_profiler.py
+
+# Comprehensive analysis
+python overhead_analysis.py --results-dir profiling_results --output-dir overhead_analysis
+```
+
+### 4. Run full benchmarks
 
 ```bash
 python run_benchmark.py --hardware single_4090
-```
-
-### 4. Analyze results
-
-```bash
 python analyze_results.py --results-dir benchmark_results --output-dir analysis
 ```
 
-## Benchmark Configurations
+## Tools Overview
 
-The system tests multiple configurations:
+### Benchmarking Harness
+- `setup_llamacpp.py` - Downloads and compiles llama.cpp
+- `benchmark_config.py` - Configuration for models and benchmarks
+- `run_benchmark.py` - Main benchmarking script
+- `analyze_results.py` - Analysis and visualization tools
+
+### Overhead Analysis (Task 1.2)
+- `profiling.py` - Direct llama.cpp profiling with timing breakdown
+- `cuda_profiler.py` - CUDA microbenchmarks for low-level overhead
+- `overhead_analysis.py` - Comprehensive analysis combining both methods
+- `OVERHEAD_ANALYSIS.md` - Detailed documentation
+
+### Output Directories
+- `benchmark_results/` - Benchmark outputs
+- `profiling_results/` - Profiling outputs
+- `cuda_benchmarks/` - CUDA benchmark outputs
+- `analysis/` - Analysis reports and visualizations
+- `overhead_analysis/` - Overhead analysis reports
+
+## Benchmark Configurations
 
 ### Model Configurations
 - 32B Q4_K_M with 256/64 tokens (short)
@@ -57,16 +78,27 @@ The system tests multiple configurations:
 - Single RTX 4090 (24GB VRAM)
 - Dual RTX 4090 (48GB VRAM total)
 
-## Output
+## Expected Overhead Breakdown
 
-Benchmarks generate:
-- JSON files with raw results in `benchmark_results/`
-- CSV summary files
-- PNG plots comparing performance
-- Markdown reports with analysis
+Based on preliminary analysis (Task 1.2):
+
+| Component | Percentage | Optimization Target |
+|-----------|------------|---------------------|
+| Kernel Execution | 40-60% | Actual computation |
+| Memory Transfers | 20-30% | Async weight prefetch |
+| Dispatch Overhead | 10-15% | CUDA graph compilation |
+| Synchronization | 5-10% | Pipeline parallelism |
+| Other | 5% | Various optimizations |
 
 ## Notes
 
-- PipeLLM results are currently placeholders until the engine is implemented
-- The harness is designed to be extended as PipeLLM development progresses
-- All configurations are defined in `benchmark_config.py` for easy modification
+- **Phase 1 Focus**: Currently implementing overhead analysis (Task 1.2)
+- **Placeholder Results**: PipeLLM results are placeholders until engine implementation
+- **Hardware Dependence**: Results vary based on GPU model and configuration
+- **Validation Required**: Analysis provides guidance; actual implementation requires validation
+
+## Documentation
+
+- `README.md` - This file (overview)
+- `OVERHEAD_ANALYSIS.md` - Detailed overhead analysis documentation
+- Generated reports in output directories

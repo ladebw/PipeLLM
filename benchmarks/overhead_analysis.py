@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """
+WARNING: SIMULATED DATA — not from real hardware
+These numbers are estimates/mocks and must be replaced with real 
+measurements before any benchmarks are published (see ROADMAP tasks 
+1.6, 2.7, 3.9, 4.2-4.5).
+
 Comprehensive overhead analysis combining multiple profiling methods.
+Note: This module contains estimated overhead calculations based on
+architecture assumptions, not actual hardware measurements.
 """
 
 import json

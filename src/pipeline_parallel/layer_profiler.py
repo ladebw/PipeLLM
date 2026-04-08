@@ -1,10 +1,19 @@
 """
+WARNING: SIMULATED DATA — not from real hardware
+These numbers are estimates/mocks and must be replaced with real 
+measurements before any benchmarks are published (see ROADMAP tasks 
+1.6, 2.7, 3.9, 4.2-4.5).
+
 Layer-by-Layer Execution Timeline Profiler
 Phase 2, Task 2.1: Profile current layer-by-layer execution timeline
 
 This module profiles the execution timeline of LLM layers to identify
 opportunities for overlapping compute and memory transfer through
 async double-buffered weight prefetch.
+
+IMPORTANT: This implementation uses mock model simulation with
+seeded random timing. All timing data is simulated and must be
+replaced with actual hardware measurements on real GPU hardware.
 """
 
 import time

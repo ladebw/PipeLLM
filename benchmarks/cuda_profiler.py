@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 """
+WARNING: SIMULATED DATA — not from real hardware
+These numbers are estimates/mocks and must be replaced with real 
+measurements before any benchmarks are published (see ROADMAP tasks 
+1.6, 2.7, 3.9, 4.2-4.5).
+
 CUDA event-based profiler for precise overhead measurement.
 This requires CUDA toolkit and PyTorch with CUDA support.
+Note: This module simulates CUDA timing measurements and must be
+validated with actual CUDA hardware before use.
 """
 
 import torch

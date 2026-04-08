@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """
+WARNING: SIMULATED DATA — not from real hardware
+These numbers are estimates/mocks and must be replaced with real 
+measurements before any benchmarks are published (see ROADMAP tasks 
+1.6, 2.7, 3.9, 4.2-4.5).
+
 Task 2.1: Profile current layer-by-layer execution timeline
 Phase 2: Async Double-Buffered Weight Prefetch
 
@@ -8,6 +13,10 @@ This script implements Task 2.1 from the roadmap:
 - Analyze compute vs memory bottlenecks
 - Identify opportunities for async weight prefetch
 - Generate optimization recommendations
+
+IMPORTANT: This script generates simulated profiling data using
+mock model timing. All results must be validated with actual
+hardware measurements on real GPU hardware.
 """
 
 import sys

@@ -1,9 +1,18 @@
 """
+WARNING: SIMULATED DATA — not from real hardware
+These numbers are estimates/mocks and must be replaced with real 
+measurements before any benchmarks are published (see ROADMAP tasks 
+1.6, 2.7, 3.9, 4.2-4.5).
+
 Async Double-Buffered Weight Prefetch Engine
 Phase 2, Task 2.2: Set up dual CUDA stream infrastructure (compute + copy)
 
 This module integrates dual CUDA streams with pinned memory buffers
 to implement async double-buffered weight prefetch for LLM inference.
+
+IMPORTANT: This engine uses simulated timing and CPU fallback.
+All performance claims require validation with actual CUDA hardware
+and real model workloads.
 """
 
 import torch

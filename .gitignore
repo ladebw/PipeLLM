@@ -156,3 +156,30 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can ignore the whole idea folder.
 .idea/
+
+# PipeLLM Generated Benchmark Results
+# These are simulated/estimated results that should not be committed
+phase2_results/
+benchmark_results/
+profiling_results/
+cuda_benchmarks/
+overhead_analysis/
+
+# Simulated data files (should be regenerated, not committed)
+*.simulated.json
+*.simulated.txt
+*.simulated.md
+*_simulated_*
+
+# Temporary benchmark output
+*.benchmark.json
+*.benchmark.txt
+*.profile.json
+*.profile.txt
+
+# Model files (large binary files)
+*.gguf
+*.bin
+*.safetensors
+*.pth
+*.ckpt

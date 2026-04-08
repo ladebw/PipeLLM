@@ -1,4 +1,9 @@
 """
+WARNING: SIMULATED DATA — not from real hardware
+These numbers are estimates/mocks and must be replaced with real 
+measurements before any benchmarks are published (see ROADMAP tasks 
+1.6, 2.7, 3.9, 4.2-4.5).
+
 Pinned Memory Buffer Pool for Weight Staging
 Phase 2, Task 2.2: Set up dual CUDA stream infrastructure (compute + copy)
 
@@ -6,6 +11,9 @@ This module implements a pinned memory buffer pool for efficient weight
 staging and transfer between CPU and GPU. Pinned (page-locked) memory
 enables faster DMA transfers and is essential for async double-buffered
 weight prefetch.
+
+IMPORTANT: This implementation simulates pinned memory behavior.
+Actual pinned memory performance requires CUDA hardware validation.
 """
 
 import torch

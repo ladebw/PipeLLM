@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 """
+WARNING: SIMULATED DATA — not from real hardware
+These numbers are estimates/mocks and must be replaced with real 
+measurements before any benchmarks are published (see ROADMAP tasks 
+1.6, 2.7, 3.9, 4.2-4.5).
+
 CUDA Graph Benchmark for PipeLLM (Phase 1, Task 1.6).
 
 This module benchmarks the CUDA graph implementation against llama.cpp baseline
 and records performance improvements.
+
+IMPORTANT: This benchmark uses simulated timing data and must be
+validated with actual CUDA hardware measurements.
 """
 
 import torch

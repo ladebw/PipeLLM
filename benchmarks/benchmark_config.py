@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """
+WARNING: SIMULATED DATA — not from real hardware
+These numbers are estimates/mocks and must be replaced with real 
+measurements before any benchmarks are published (see ROADMAP tasks 
+1.6, 2.7, 3.9, 4.2-4.5).
+
 Configuration for benchmarking PipeLLM vs llama.cpp.
+Note: Benchmark targets are based on architectural estimates and
+must be validated with actual hardware measurements.
 """
 
 from dataclasses import dataclass

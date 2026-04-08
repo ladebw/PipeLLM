@@ -1,4 +1,9 @@
 """
+WARNING: SIMULATED DATA — not from real hardware
+These numbers are estimates/mocks and must be replaced with real 
+measurements before any benchmarks are published (see ROADMAP tasks 
+1.6, 2.7, 3.9, 4.2-4.5).
+
 Dual CUDA Stream Infrastructure
 Phase 2, Task 2.2: Set up dual CUDA stream infrastructure (compute + copy)
 
@@ -6,6 +11,10 @@ This module implements the dual CUDA stream infrastructure for async
 double-buffered weight prefetch. It provides separate compute and copy
 streams with proper synchronization to enable overlapping of compute
 and memory transfer operations.
+
+IMPORTANT: This implementation includes CPU fallback for testing
+without CUDA hardware. All performance measurements require validation
+with actual CUDA hardware.
 """
 
 import torch

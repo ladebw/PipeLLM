@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """
+WARNING: SIMULATED DATA — not from real hardware
+These numbers are estimates/mocks and must be replaced with real 
+measurements before any benchmarks are published (see ROADMAP tasks 
+1.6, 2.7, 3.9, 4.2-4.5).
+
 Task 2.2: Set up dual CUDA stream infrastructure (compute + copy)
 Phase 2: Async Double-Buffered Weight Prefetch
 
@@ -8,6 +13,10 @@ This script implements Task 2.2 from the roadmap:
 - Implement pinned memory buffer pool
 - Create async prefetch engine
 - Validate infrastructure functionality
+
+IMPORTANT: This script tests infrastructure with simulated CUDA
+operations. All components must be validated with actual CUDA
+hardware before performance claims can be made.
 """
 
 import sys

@@ -65,12 +65,6 @@ python scripts/run_validation.py
 
 # Run benchmarks (requires CUDA GPU + GGUF model)
 python scripts/quick_benchmark.py --model-path /path/to/model.gguf
-
-# Profile layer execution timeline
-python scripts/run_task_2_1.py
-
-# Test async prefetch infrastructure
-python scripts/run_task_2_2.py
 ```
 
 ## Project Structure
@@ -99,9 +93,9 @@ PipeLLM/
 ├── scripts/                       # Task runner scripts
 │   ├── run_validation.py          # Output validation
 │   ├── quick_benchmark.py         # Quick performance testing
-│   ├── run_task_2_1.py           # Task 2.1 execution
-│   └── run_task_2_2.py           # Task 2.2 execution
-└── phase2_results/               # Generated profiling results
+│   ├── run_task_2_1.py           # Layer profiling (internal)
+│   └── run_task_2_2.py           # Async prefetch testing (internal)
+└── phase2_results/               # Generated profiling results (created on first run)
 ```
 
 ## Performance Targets
@@ -148,21 +142,3 @@ All current performance numbers are simulated or estimated. Real hardware measur
 MIT License
 
 Copyright (c) 2026 PipeLLM
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

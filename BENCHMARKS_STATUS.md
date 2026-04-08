@@ -20,6 +20,8 @@ This document tracks the status of benchmark results in the PipeLLM project. All
 | `src/pipeline_parallel/async_prefetch/` | Async prefetch infrastructure (Tasks 2.2-2.4 combined) | ROADMAP tasks 2.2-2.4 with real CUDA |
 | `src/pipeline_parallel/race_condition_validator.py` | Race condition detection (CPU simulation) | ROADMAP task 2.5 with real CUDA hardware |
 | `scripts/run_task_2_5.py` | Task 2.5 execution with simulated validation | ROADMAP task 2.5 with real measurements |
+| `src/pipeline_parallel/async_output_validation.py` | Async output validation (CPU simulation) | ROADMAP task 2.6 with real CUDA hardware |
+| `scripts/run_task_2_6.py` | Task 2.6 execution with simulated validation | ROADMAP task 2.6 with real measurements |
 
 ## Implementation Status by Roadmap Task
 
@@ -34,7 +36,7 @@ This document tracks the status of benchmark results in the PipeLLM project. All
 - [x] **Task 2.3** - Pinned memory buffer pool implemented (completed as part of Task 2.2)
 - [x] **Task 2.4** - Double-buffer swap logic implemented (completed as part of Task 2.2)
 - [x] **Task 2.5** - Race condition testing implemented (CPU simulation complete, CUDA hardware validation required)
-- [ ] **Task 2.6** - Output validation (requires CUDA hardware)
+- [x] **Task 2.6** - Output validation implemented (CPU simulation complete, CUDA hardware validation required)
 - [ ] **Task 2.7** - Real cumulative improvement recorded (requires CUDA hardware)
 
 ### Phase 3: Pipeline Parallelism

@@ -1,8 +1,12 @@
+<div align="center">
+
 # PipeLLM
 
 PipeLLM is a local LLM inference engine that delivers faster token generation than llama.cpp on consumer multi-GPU hardware through three system-level optimizations: CUDA graph compilation, async weight prefetch, and pipeline-parallel GPU scheduling.
 
 No model changes. No weight modifications. Same GGUF files llama.cpp uses.
+
+</div>
 
 ## What problem it solves
 
